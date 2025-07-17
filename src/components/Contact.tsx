@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Mail, Phone, MessageCircle, Send, CheckCircle, Globe, Linkedin } from 'lucide-react';
 
 const Contact = () => {
@@ -203,9 +204,9 @@ const Contact = () => {
                   />
                   <label htmlFor="terms" className="text-sm text-gray-600 break-words">
                     Ich stimme den{' '}
-                    <a href="#" className="text-blue-600 hover:text-blue-800 underline">
+                    <Link to="/datenschutz" className="text-blue-600 hover:text-blue-800 underline">
                       Datenschutzbestimmungen
-                    </a>{' '}
+                    </Link>{' '}
                     und{' '}
                     <a href="#" className="text-blue-600 hover:text-blue-800 underline">
                       Allgemeinen Geschäftsbedingungen

@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Bot, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const footerLinks = {
     'Rechtliches': [
       { name: 'Impressum', href: '#' },
-      { name: 'Datenschutz', href: '#' },
+      { name: 'Datenschutz', href: '/datenschutz' },
       { name: 'AGB', href: '#' },
       { name: 'Nutzungsbedingungen', href: '#' }
     ],
@@ -72,12 +73,28 @@ const Footer = () => {
               <ul className="space-y-3">
                 {links.map((link, index) => (
                   <li key={index}>
-                    <button
-                      onClick={() => link.href.startsWith('#') ? scrollToSection(link.href) : window.open(link.href, '_blank')}
-                      className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer break-words text-left"
-                    >
-                      {link.name}
-                    </button>
+                    {link.href.startsWith('#') ? (
+                      <button
+                        onClick={() => scrollToSection(link.href)}
+                        className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer break-words text-left"
+                      >
+                        {link.name}
+                      </button>
+                    ) : link.href.startsWith('/') ? (
+                      <Link
+                        to={link.href}
+                        className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer break-words text-left"
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() => window.open(link.href, '_blank')}
+                        className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer break-words text-left"
+                      >
+                        {link.name}
+                      </button>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -102,9 +119,9 @@ const Footer = () => {
               <a href="#" className="hover:text-white transition-colors whitespace-nowrap">
                 Impressum
               </a>
-              <a href="#" className="hover:text-white transition-colors whitespace-nowrap">
+              <Link to="/datenschutz" className="hover:text-white transition-colors whitespace-nowrap">
                 Datenschutz
-              </a>
+              </Link>
               <a href="#" className="hover:text-white transition-colors whitespace-nowrap">
                 AGB
               </a>

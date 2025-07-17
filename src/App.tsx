@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
@@ -9,6 +10,7 @@ import Benefits from './components/Benefits';
 import Security from './components/Security';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +24,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <Router>
       <AnimatePresence>
         {isLoading && <LoadingScreen />}
       </AnimatePresence>
@@ -30,15 +32,22 @@ function App() {
       {!isLoading && (
         <div className="bg-white min-h-screen">
           <Navbar />
-          <Hero />
-          <Automation />
-          <Benefits />
-          <Security />
-          <Contact />
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Hero />
+                <Automation />
+                <Benefits />
+                <Security />
+                <Contact />
+              </>
+            } />
+            <Route path="/datenschutz" element={<PrivacyPolicy />} />
+          </Routes>
           <Footer />
         </div>
       )}
-    </>
+    </Router>
   );
 }
 
