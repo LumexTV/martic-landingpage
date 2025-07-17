@@ -6,7 +6,7 @@ const automationFeatures = [
   {
     icon: BarChart3,
     title: 'Ersetzt eine ganze Stelle',
-    description: 'Läuft 24/7 für Sie im Hintergrund - Sie brauchen sich keine Gedanken mehr um langweilige Prozesse zu machen.',
+    description: 'Läuft 24/7 für Sie im Hintergrund - Sie brauchen sich keine Gedanken mehr, um langweilige Prozesse zu machen.',
     color: 'from-sky-400 to-sky-500'
   },
   {
