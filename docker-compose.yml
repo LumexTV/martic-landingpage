@@ -13,6 +13,7 @@ services:
       - nginx-proxy
     environment:
       - TZ=Europe/Berlin
+    
 
 networks:
   nginx-proxy:
