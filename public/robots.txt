@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://marticsolutions.de/sitemap.xml
+
+# Optimized for search engines
+Crawl-delay: 1
