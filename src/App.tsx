@@ -11,6 +11,7 @@ import Security from './components/Security';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import Impressum from './pages/Impressum';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,6 +44,7 @@ function App() {
               </>
             } />
             <Route path="/datenschutz" element={<PrivacyPolicy />} />
+            <Route path="/impressum" element={<Impressum />} />
           </Routes>
           <Footer />
         </div>

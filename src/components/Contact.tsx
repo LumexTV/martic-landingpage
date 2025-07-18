@@ -18,7 +18,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!agreedToTerms) {
-      alert('Bitte stimmen Sie den Datenschutzbestimmungen und AGB zu.');
+      alert('Ich stimme den Datenschutzbestimmungen zu.');
       return;
     }
     // Here you would typically send the form data to your backend
@@ -207,10 +207,6 @@ const Contact = () => {
                     <Link to="/datenschutz" className="text-blue-600 hover:text-blue-800 underline">
                       Datenschutzbestimmungen
                     </Link>{' '}
-                    und{' '}
-                    <a href="#" className="text-blue-600 hover:text-blue-800 underline">
-                      Allgemeinen Geschäftsbedingungen
-                    </a>{' '}
                     zu. *
                   </label>
                 </div>

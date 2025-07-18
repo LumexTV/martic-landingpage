@@ -6,7 +6,7 @@ import { Bot, Mail, Phone, MapPin } from 'lucide-react';
 const Footer = () => {
   const footerLinks = {
     'Rechtliches': [
-      { name: 'Impressum', href: '#' },
+      { name: 'Impressum', href: '/impressum' },
       { name: 'Datenschutz', href: '/datenschutz' },
       { name: 'AGB', href: '#' },
       { name: 'Nutzungsbedingungen', href: '#' }
@@ -116,7 +116,7 @@ const Footer = () => {
               >
                 Kontakt
               </button>
-              <a href="#" className="hover:text-white transition-colors whitespace-nowrap">
+              <a href="/impressum.html" className="hover:text-white transition-colors whitespace-nowrap">
                 Impressum
               </a>
               <Link to="/datenschutz" className="hover:text-white transition-colors whitespace-nowrap">
