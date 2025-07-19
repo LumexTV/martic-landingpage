@@ -96,14 +96,6 @@ const Navbar = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.open('https://app.marticsolutions.de', '_blank')}
-              className="border-2 border-blue-600 text-blue-600 px-4 lg:px-6 py-2 rounded-full font-medium hover:bg-blue-600 hover:text-white transition-colors text-sm lg:text-base whitespace-nowrap"
-            >
-              Login
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection('kontakt')}
               className="bg-blue-600 text-white px-4 lg:px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition-colors text-sm lg:text-base whitespace-nowrap"
             >
@@ -158,12 +150,6 @@ const Navbar = () => {
                 className="text-gray-700 hover:text-blue-600 transition-colors text-left"
               >
                 Kontakt
-              </button>
-              <button
-                onClick={() => window.open('https://app.marticsolutions.de', '_blank')}
-                className="text-gray-700 hover:text-blue-600 transition-colors text-left"
-              >
-                Login
               </button>
               <button
                 onClick={() => scrollToSection('kontakt')}

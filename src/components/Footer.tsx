@@ -8,20 +8,17 @@ const Footer = () => {
     'Rechtliches': [
       { name: 'Impressum', href: '/impressum' },
       { name: 'Datenschutz', href: '/datenschutz' },
-      { name: 'AGB', href: '#' },
-      { name: 'Nutzungsbedingungen', href: '#' }
     ],
     'Unternehmen': [
       { name: 'Über uns', href: '#' },
-      { name: 'Karriere', href: '#' },
       { name: 'Kontakt', href: '#kontakt' },
       { name: 'Blog', href: '#' }
     ],
     'Services': [
       { name: 'KI-Automatisierung', href: '#automatisierung' },
-      { name: 'Dashboard-Lösungen', href: '#' },
-      { name: 'Dokumenten-KI', href: '#' },
-      { name: 'Support', href: '#' }
+      { name: 'Dashboard-Lösungen', href: 'app.marticsolutions.de' },
+      { name: 'Dokumenten-KI', href: '#vorteile' },
+      { name: 'Beratung', href: '#kontakt' },
     ]
   };
 
