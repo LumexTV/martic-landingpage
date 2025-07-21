@@ -10,15 +10,15 @@ const Footer = () => {
       { name: 'Datenschutz', href: '/datenschutz' },
     ],
     'Unternehmen': [
-      { name: 'Über uns', href: '#' },
-      { name: 'Kontakt', href: '#kontakt' },
+      { name: 'Über uns', href: '/?scroll=automatisierung' },
+      { name: 'Kontakt', href: '/?scroll=kontakt' },
       { name: 'Blog', href: '#' }
     ],
     'Services': [
-      { name: 'KI-Automatisierung', href: '#automatisierung' },
-      { name: 'Dashboard-Lösungen', href: 'app.marticsolutions.de' },
-      { name: 'Dokumenten-KI', href: '#vorteile' },
-      { name: 'Beratung', href: '#kontakt' },
+      { name: 'KI-Automatisierung', href: '/?scroll=automatisierung' },
+      { name: 'Dashboard-Lösungen', href: 'https://app.marticsolutions.de' },
+      { name: 'Dokumenten-KI', href: '/?scroll=vorteile' },
+      { name: 'Beratung', href: '/?scroll=kontakt' },
     ]
   };
 
@@ -50,15 +50,15 @@ const Footer = () => {
             <div className="space-y-2 text-sm text-gray-400">
               <div className="flex items-center space-x-2 break-all">
                 <Mail size={16} />
-                <span>info@martic-solutions.de</span>
+                <span>kontakt@marticsolutions.de</span>
               </div>
               <div className="flex items-center space-x-2 break-all">
                 <Phone size={16} />
-                <span>+49 (0) 123 456789</span>
+                <span>+49 (0) 17647663929</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin size={16} />
-                <span>Deutschland</span>
+                <span>Hamburg, Deutschland</span>
               </div>
             </div>
           </div>
@@ -103,25 +103,22 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-gray-400 text-sm mb-4 md:mb-0 text-center md:text-left break-words">
-              © 2024 Martic Solutions. Alle Rechte vorbehalten.
+              © 2025 Martic Solutions. Alle Rechte vorbehalten.
             </div>
             
             <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-gray-400 text-sm">
-              <button 
-                onClick={() => scrollToSection('#kontakt')}
+              <Link 
+                to="/?scroll=kontakt"
                 className="hover:text-white transition-colors whitespace-nowrap"
               >
                 Kontakt
-              </button>
-              <a href="/impressum.html" className="hover:text-white transition-colors whitespace-nowrap">
+              </Link>
+              <Link to="/impressum" className="hover:text-white transition-colors whitespace-nowrap">
                 Impressum
-              </a>
+              </Link>
               <Link to="/datenschutz" className="hover:text-white transition-colors whitespace-nowrap">
                 Datenschutz
               </Link>
-              <a href="#" className="hover:text-white transition-colors whitespace-nowrap">
-                AGB
-              </a>
             </div>
           </div>
         </div>
