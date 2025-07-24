@@ -95,6 +95,56 @@
         border-radius: 12px;
         overflow: hidden;
       }
+      
+      /* Hide powered by footer completely */
+      .n8n-chat [data-key="footer"],
+      .n8n-chat .n8n-chat-footer,
+      .n8n-chat footer,
+      .n8n-chat .footer,
+      .n8n-chat-powered-by,
+      [class*="powered-by"],
+      [class*="footer"] {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      
+      /* Fix chat toggle button to be a perfect circle without white border */
+      .n8n-chat-toggle,
+      button[class*="toggle"],
+      .n8n-chat button[aria-label*="chat"],
+      .n8n-chat button[aria-label*="Chat"] {
+        width: var(--chat--toggle--size) !important;
+        height: var(--chat--toggle--size) !important;
+        border-radius: 50% !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+        background: var(--chat--toggle--background) !important;
+        position: relative !important;
+      }
+      
+      .n8n-chat-toggle:hover,
+      button[class*="toggle"]:hover,
+      .n8n-chat button[aria-label*="chat"]:hover,
+      .n8n-chat button[aria-label*="Chat"]:hover {
+        background: var(--chat--toggle--hover--background) !important;
+        transform: scale(1.05) !important;
+        transition: all 0.2s ease !important;
+        border: none !important;
+        outline: none !important;
+      }
+      
+      /* Remove any potential white borders or outlines from toggle button elements */
+      .n8n-chat-toggle *,
+      button[class*="toggle"] *,
+      .n8n-chat button[aria-label*="chat"] *,
+      .n8n-chat button[aria-label*="Chat"] * {
+        border: none !important;
+        outline: none !important;
+      }
     </style>
   </head>
   <body>
@@ -125,7 +175,7 @@
           de: {
             title: 'Martic Solutions 🔧',
             subtitle: 'KI-Beratung für Handwerksbetriebe - Wir sind 24/7 für Sie da!',
-            footer: 'Powered by Martic Solutions',
+            footer: '',
             getStarted: 'Chat starten',
             inputPlaceholder: 'Stellen Sie Ihre Frage über KI im Handwerk...'
           }
