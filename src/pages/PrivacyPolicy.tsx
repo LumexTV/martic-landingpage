@@ -7,16 +7,16 @@ const PrivacyPolicy = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-br from-white via-blue-50 to-white min-h-screen py-12">
+    <div className="bg-gradient-to-br from-black via-slate-900 to-black min-h-screen py-12">
       <div className="max-w-6xl mx-auto px-8">
-        <div className="bg-white p-10 shadow-lg rounded-xl">
-          <h2 className="text-3xl font-bold text-blue-700 mb-6">Datenschutzerklärung</h2>
+        <div className="bg-slate-800/80 backdrop-blur-sm p-10 shadow-2xl shadow-cyan-500/10 rounded-xl border border-cyan-500/20">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-6">Datenschutzerklärung</h2>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="mb-6 text-gray-600">
+            <p className="mb-6 text-gray-300">
               <strong>Stand:</strong> 17. Juli 2025
             </p>
       <hr className="my-4" />
@@ -81,7 +81,7 @@ const PrivacyPolicy = () => {
 
       <h3 className="text-xl font-bold mt-8 mb-2">6. Sicherheit Ihrer Daten</h3>
       <p>Unsere Website nutzt eine verschlüsselte Verbindung via SSL/TLS („https“). Darüber hinaus setzen wir gemeinsam mit unserem Hosting-Anbieter technische und organisatorische Maßnahmen ein, um Ihre Daten bestmöglich zu schützen.</p>
-      <p>Informationen zu den Maßnahmen von Hetzner:<br />🔗 <a href="https://docs.hetzner.com/de/general/others/technical-and-organizational-measures" target="_blank" className="text-blue-600 hover:text-blue-800 underline">Technische und organisatorische Maßnahmen</a></p>
+      <p>Informationen zu den Maßnahmen von Hetzner:<br />🔗 <a href="https://docs.hetzner.com/de/general/others/technical-and-organizational-measures" target="_blank" className="text-blue-400 hover:text-blue-300 underline">Technische und organisatorische Maßnahmen</a></p>
       <hr className="my-4" />
 
       <h3 className="text-xl font-bold mt-8 mb-2">7. Keine Cookies / Kein Tracking</h3>
@@ -102,8 +102,8 @@ const PrivacyPolicy = () => {
         <li><strong>Recht auf Beschwerde</strong> bei einer Aufsichtsbehörde (Art. 77 DSGVO)</li>
       </ul>
       <p>Zuständige Aufsichtsbehörde für Hamburg:</p>
-      <p>Der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit<br />Ludwig-Erhard-Str. 22, 20459 Hamburg<br />Telefon: +49 40 428 54 – 4040<br />E-Mail: <a href="mailto:mailbox@datenschutz.hamburg.de" className="text-blue-600 hover:text-blue-800 underline">mailbox@datenschutz.hamburg.de</a></p>
-      <p>🔗 <a href="https://datenschutz-hamburg.de" target="_blank" className="text-blue-600 hover:text-blue-800 underline">datenschutz-hamburg.de</a></p>
+      <p>Der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit<br />Ludwig-Erhard-Str. 22, 20459 Hamburg<br />Telefon: +49 40 428 54 – 4040<br />E-Mail: <a href="mailto:mailbox@datenschutz.hamburg.de" className="text-blue-400 hover:text-blue-300 underline">mailbox@datenschutz.hamburg.de</a></p>
+      <p>🔗 <a href="https://datenschutz-hamburg.de" target="_blank" className="text-blue-400 hover:text-blue-300 underline">datenschutz-hamburg.de</a></p>
       <hr className="my-4" />
 
       <h3 className="text-xl font-bold mt-8 mb-2">9. Datenschutz bei externen Links</h3>
@@ -115,12 +115,12 @@ const PrivacyPolicy = () => {
       <p><strong>Stand dieser Erklärung:</strong> 17. Juli 2025</p>
       <hr className="my-4" />
 
-            <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+            <h3 className="text-2xl font-semibold text-white mt-8 mb-4">
               Kontakt für Datenschutzanfragen
             </h3>
-            <p className="text-lg text-gray-700">
+            <p className="text-lg text-gray-300">
               Luka Martic
-              <br />E-Mail: <a href="mailto:kontakt@marticsolutions.de" className="text-blue-600 hover:text-blue-800 underline">kontakt@marticsolutions.de</a>
+              <br />E-Mail: <a href="mailto:kontakt@marticsolutions.de" className="text-blue-400 hover:text-blue-300 underline">kontakt@marticsolutions.de</a>
             </p>
           </motion.div>
         </div>

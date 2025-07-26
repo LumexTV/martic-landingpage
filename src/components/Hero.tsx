@@ -3,60 +3,54 @@ import { ArrowRight, Zap, Clock, Shield, Bot, Sparkles, Lightbulb } from 'lucide
 
 const Hero = () => {
   const scrollToContact = () => {
+    console.log('Scrolling to contact section...');
     const element = document.getElementById('kontakt');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      console.log('Contact element found and scrolled to');
+    } else {
+      console.error('Contact element not found');
     }
   };
 
   const scrollToAutomation = () => {
+    console.log('Scrolling to automation section...');
     const element = document.getElementById('automatisierung');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      console.log('Automation element found and scrolled to');
+    } else {
+      console.error('Automation element not found');
     }
   };
 
   return (
-    <section id="start" className="pt-24 pb-20 bg-gradient-to-br from-white via-blue-50/30 to-white min-h-screen flex items-center">
+    <section id="start" className="pt-24 pb-20 bg-gradient-to-br from-black via-slate-900 to-black min-h-screen flex items-center relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+      </div>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight"
-            >
+        {/* Left Content */}
+          <div>
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
               Professionelle KI-Lösungen für{' '}
-              <span className="text-blue-600 break-words">Handwerksbetriebe</span>
-            </motion.h1>
+              <span className="text-cyan-400 break-words bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,211,238,0.5)]">Handwerksbetriebe</span>
+            </h1>
             
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl text-gray-600 mb-8 leading-relaxed"
-            >
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
               Bringen Sie Ihr Unternehmen auf das nächste Level mit smarten 
               Automationen und digitalen Workflows. Einfach, sicher, effizient.
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 mb-12"
-            >
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={scrollToContact}
-                className="bg-blue-600 text-white px-6 sm:px-8 py-4 rounded-full text-base sm:text-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center justify-center space-x-2"
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 text-black px-6 sm:px-8 py-4 rounded-full text-base sm:text-lg font-bold hover:from-cyan-400 hover:to-blue-400 transition-all duration-300 inline-flex items-center justify-center space-x-2 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40"
               >
                 <span className="whitespace-nowrap">Jetzt Erstberatung sichern</span>
                 <ArrowRight size={20} />
@@ -66,33 +60,28 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={scrollToAutomation}
-                className="border-2 border-gray-300 text-gray-700 px-6 sm:px-8 py-4 rounded-full text-base sm:text-lg font-medium hover:border-blue-600 hover:text-blue-600 transition-colors"
+                className="border-2 border-cyan-400/50 text-cyan-400 px-6 sm:px-8 py-4 rounded-full text-base sm:text-lg font-medium hover:border-cyan-400 hover:bg-cyan-400/10 hover:shadow-lg hover:shadow-cyan-400/25 transition-all duration-300"
               >
                 Mehr erfahren
               </motion.button>
-            </motion.div>
+            </div>
 
             {/* Trust Indicators */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm text-gray-500"
-            >
+            <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm text-gray-400">
               <div className="flex items-center space-x-2">
-                <Shield className="text-blue-600" size={16} />
+                <Shield className="text-cyan-400" size={16} />
                 <span>DSGVO-konform</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Clock className="text-blue-600" size={16} />
+                <Clock className="text-cyan-400" size={16} />
                 <span>Schnelle Umsetzung</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Sparkles className="text-blue-600" size={16} />
+                <Sparkles className="text-cyan-400" size={16} />
                 <span className="whitespace-nowrap">Komplett personalisiert</span>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Right Visual */}
           <motion.div
@@ -101,23 +90,23 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative"
           >
-            <div className="relative bg-gradient-to-br from-blue-100 to-blue-200 rounded-3xl p-8 overflow-hidden">
+            <div className="relative bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-3xl p-8 overflow-hidden border border-cyan-500/20 shadow-2xl shadow-cyan-500/10">
               {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-20">
+              <div className="absolute inset-0 opacity-30">
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute top-4 left-4 w-20 h-20 bg-blue-600 rounded-full"
+                  className="absolute top-4 left-4 w-20 h-20 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 rounded-full blur-sm"
                 />
                 <motion.div
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-20 right-8 w-12 h-12 bg-blue-800 rounded-full"
+                  className="absolute top-20 right-8 w-12 h-12 bg-gradient-to-r from-blue-500/30 to-cyan-500/30 rounded-full blur-sm"
                 />
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute bottom-8 left-12 w-16 h-16 bg-blue-500 rounded-full"
+                  className="absolute bottom-8 left-12 w-16 h-16 bg-gradient-to-r from-cyan-400/30 to-blue-400/30 rounded-full blur-sm"
                 />
               </div>
 

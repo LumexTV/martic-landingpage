@@ -1,0 +1,247 @@
+/* Chat Widget Custom Styling - Martic Solutions Theme */
+:root {
+	/* Primary colors - Cyan/Blue theme */
+	--chat--color-primary: #06b6d4; /* cyan-500 */
+	--chat--color-primary-shade-50: #0891b2; /* cyan-600 */
+	--chat--color-primary-shade-100: #0e7490; /* cyan-700 */
+	--chat--color-secondary: #3b82f6; /* blue-500 */
+	--chat--color-secondary-shade-50: #2563eb; /* blue-600 */
+	
+	/* Background colors - Dark theme */
+	--chat--color-white: #1e293b; /* slate-800 */
+	--chat--color-light: #334155; /* slate-700 */
+	--chat--color-light-shade-50: #475569; /* slate-600 */
+	--chat--color-light-shade-100: #64748b; /* slate-500 */
+	--chat--color-medium: #475569; /* slate-600 */
+	--chat--color-dark: #0f172a; /* slate-900 */
+	--chat--color-disabled: #64748b; /* slate-500 */
+	--chat--color-typing: #94a3b8; /* slate-400 */
+
+	/* Layout */
+	--chat--spacing: 1rem;
+	--chat--border-radius: 0.75rem; /* More rounded for modern look */
+	--chat--transition-duration: 0.3s; /* Smoother transitions */
+
+	/* Window sizing */
+	--chat--window--width: 400px;
+	--chat--window--height: 600px;
+
+	/* Header styling */
+	--chat--header-height: auto;
+	--chat--header--padding: var(--chat--spacing);
+	--chat--header--background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+	--chat--header--color: #f8fafc; /* slate-50 */
+	--chat--header--border-top: none;
+	--chat--header--border-bottom: 1px solid rgba(6, 182, 212, 0.2); /* cyan border */
+	--chat--heading--font-size: 1.5em;
+	--chat--subtitle--font-size: 0.9em;
+	--chat--subtitle--line-height: 1.6;
+
+	/* Textarea */
+	--chat--textarea--height: 50px;
+
+	/* Messages */
+	--chat--message--font-size: 0.95rem;
+	--chat--message--padding: 0.875rem;
+	--chat--message--border-radius: 0.75rem;
+	--chat--message-line-height: 1.6;
+	
+	/* Bot messages - Dark cards with white border */
+	--chat--message--bot--background: #334155; /* slate-700 */
+	--chat--message--bot--color: #f8fafc; /* slate-50 - better contrast */
+	--chat--message--bot--border: 2px solid #e2e8f0; /* white border */
+	
+	/* User messages - Cyan gradient with white text */
+	--chat--message--user--background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+	--chat--message--user--color: #ffffff; /* white text instead of black */
+	--chat--message--user--border: 2px solid #3b82f6; /* blue border */
+	
+	/* Code blocks */
+	--chat--message--pre--background: rgba(0, 0, 0, 0.3);
+
+	/* Toggle button - Cyan theme */
+	--chat--toggle--background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+	--chat--toggle--hover--background: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
+	--chat--toggle--active--background: linear-gradient(135deg, #0e7490 0%, #1d4ed8 100%);
+	--chat--toggle--color: #000000;
+	--chat--toggle--size: 64px;
+}
+
+/* Additional custom styling for better integration */
+[data-chat-widget] {
+	/* Add backdrop blur for modern glass effect */
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+/* Chat window shadow for depth */
+[data-chat-widget] .chat-window {
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 
+	            0 0 0 1px rgba(6, 182, 212, 0.1);
+}
+
+/* Toggle button with glow effect */
+[data-chat-widget] .chat-toggle {
+	box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3), 
+	            0 0 0 1px rgba(6, 182, 212, 0.2);
+	transition: all var(--chat--transition-duration) ease;
+}
+
+[data-chat-widget] .chat-toggle:hover {
+	box-shadow: 0 15px 35px rgba(6, 182, 212, 0.4), 
+	            0 0 0 1px rgba(6, 182, 212, 0.3);
+	transform: translateY(-2px);
+}
+
+/* Input field styling - Better visibility */
+[data-chat-widget] textarea,
+[data-chat-widget] input {
+	background-color: #1e293b !important; /* slate-800 - darker for better contrast */
+	border: 2px solid #e2e8f0 !important; /* white border like messages */
+	color: #f8fafc !important; /* slate-50 */
+	border-radius: 0.75rem !important; /* match message border radius */
+	padding: 12px 16px !important; /* better padding */
+	font-size: 0.95rem !important;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-chat-widget] textarea:focus,
+[data-chat-widget] input:focus {
+	border-color: #06b6d4 !important; /* cyan-500 */
+	box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3), 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+	outline: none !important;
+	background-color: #334155 !important; /* slightly lighter when focused */
+}
+
+/* Placeholder text */
+[data-chat-widget] textarea::placeholder,
+[data-chat-widget] input::placeholder {
+	color: #cbd5e1 !important; /* slate-300 - better visibility */
+	font-weight: 500 !important;
+}
+
+/* Send button */
+[data-chat-widget] button[type="submit"] {
+	background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%) !important;
+	color: #000000 !important;
+	border: none !important;
+	border-radius: 0.5rem !important;
+	font-weight: 600 !important;
+	transition: all var(--chat--transition-duration) ease !important;
+}
+
+[data-chat-widget] button[type="submit"]:hover {
+	background: linear-gradient(135deg, #0891b2 0%, #2563eb 100%) !important;
+	transform: translateY(-1px) !important;
+	box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3) !important;
+}
+
+/* Force white text color for all input types - Multiple approaches */
+[data-chat-widget] input,
+[data-chat-widget] textarea,
+[data-chat-widget] input[type="text"],
+[data-chat-widget] input[type="email"],
+[data-chat-widget] input[type="password"],
+[data-chat-widget] input[type="search"] {
+	color: #ffffff !important;
+	-webkit-text-fill-color: #ffffff !important;
+	-moz-text-fill-color: #ffffff !important;
+	text-shadow: none !important;
+}
+
+/* Ensure text stays white while typing */
+[data-chat-widget] input:focus,
+[data-chat-widget] textarea:focus {
+	color: #ffffff !important;
+	-webkit-text-fill-color: #ffffff !important;
+	-moz-text-fill-color: #ffffff !important;
+}
+
+/* Override any inherited styles */
+[data-chat-widget] input::selection,
+[data-chat-widget] textarea::selection {
+	background-color: rgba(6, 182, 212, 0.3) !important;
+	color: #ffffff !important;
+}
+
+/* Force white text with highest specificity */
+[data-chat-widget] div input,
+[data-chat-widget] div textarea,
+[data-chat-widget] form input,
+[data-chat-widget] form textarea {
+	color: #ffffff !important;
+	-webkit-text-fill-color: #ffffff !important;
+}
+
+/* AGGRESSIVE: Force white text with maximum CSS specificity and all possible selectors */
+[data-chat-widget] * {
+	color: inherit !important;
+}
+
+[data-chat-widget] input,
+[data-chat-widget] input *,
+[data-chat-widget] textarea,
+[data-chat-widget] textarea *,
+[data-chat-widget] [type="text"],
+[data-chat-widget] [type="search"],
+[data-chat-widget] [type="email"],
+[data-chat-widget] [contenteditable="true"],
+[data-chat-widget] .input,
+[data-chat-widget] .text-input,
+[data-chat-widget] .message-input {
+	color: #ffffff !important;
+	-webkit-text-fill-color: #ffffff !important;
+	-moz-text-fill-color: #ffffff !important;
+	text-shadow: none !important;
+	background-color: transparent !important;
+}
+
+/* Ultra specific selectors for chat widgets */
+[data-chat-widget] div[class*="input"] input,
+[data-chat-widget] div[class*="message"] input,
+[data-chat-widget] div[class*="text"] input,
+[data-chat-widget] form input,
+[data-chat-widget] form textarea,
+[data-chat-widget] .chat-input input,
+[data-chat-widget] .message-composer input,
+[data-chat-widget] .input-container input {
+	color: #ffffff !important;
+	-webkit-text-fill-color: #ffffff !important;
+	-moz-text-fill-color: #ffffff !important;
+}
+
+/* Override any widget-specific classes */
+[data-chat-widget] .widget-input,
+[data-chat-widget] .chat-text-input,
+[data-chat-widget] .user-input {
+	color: #ffffff !important;
+	-webkit-text-fill-color: #ffffff !important;
+}
+
+/* Force override with !important on all text properties */
+[data-chat-widget] input:not([type="submit"]):not([type="button"]):not([type="reset"]) {
+	color: #ffffff !important;
+	-webkit-text-fill-color: #ffffff !important;
+	-moz-text-fill-color: #ffffff !important;
+	text-shadow: 0 0 0 #ffffff !important;
+	caret-color: #ffffff !important;
+}
+
+/* Scrollbar styling for webkit browsers */
+[data-chat-widget] ::-webkit-scrollbar {
+	width: 6px;
+}
+
+[data-chat-widget] ::-webkit-scrollbar-track {
+	background: #334155; /* slate-700 */
+	border-radius: 3px;
+}
+
+[data-chat-widget] ::-webkit-scrollbar-thumb {
+	background: #64748b; /* slate-500 */
+	border-radius: 3px;
+}
+
+[data-chat-widget] ::-webkit-scrollbar-thumb:hover {
+	background: #06b6d4; /* cyan-500 */
+}

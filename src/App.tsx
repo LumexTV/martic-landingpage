@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import './styles/chat-widget.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Automation from './components/Automation';
@@ -34,7 +35,7 @@ function ScrollHandler() {
 function App() {
   return (
     <Router>
-      <div className="bg-white min-h-screen">
+      <div className="bg-black min-h-screen">
         <ScrollHandler />
         <Navbar />
         <Routes>

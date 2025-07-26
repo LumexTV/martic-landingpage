@@ -43,13 +43,6 @@ const Contact = () => {
     console.error('Fehler:', error);
     alert('Es gab ein Problem beim Senden des Formulars.');
   });
-    
-    // Reset form after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', company: '', email: '', phone: '', website: '', message: '' });
-      setAgreedToTerms(false);
-    }, 5000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -60,7 +53,12 @@ const Contact = () => {
   };
 
   return (
-    <section id="kontakt" className="py-20 bg-gray-50">
+    <section id="kontakt" className="py-20 bg-gradient-to-br from-slate-900 via-black to-slate-900 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-cyan-500/3 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-blue-500/3 rounded-full blur-3xl"></div>
+      </div>
       <div className="max-w-full mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -68,11 +66,11 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 px-4">
             Jetzt unverbindlich{' '}
-            <span className="text-blue-600 break-words">beraten lassen</span>
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,211,238,0.5)]">beraten lassen</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             Lassen Sie uns gemeinsam herausfinden, wie KI-Automatisierung 
             Ihren Handwerksbetrieb voranbringen kann.
           </p>
@@ -85,8 +83,8 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center break-words">
+          <div className="bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 border border-cyan-500/20 shadow-2xl shadow-cyan-500/10">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 text-center break-words">
               Kontaktformular - Ihr sicherer Weg in die Zukunft
             </h3>
 
@@ -94,7 +92,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2 break-words">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2 break-words">
                       Name *
                     </label>
                     <input
@@ -104,12 +102,12 @@ const Contact = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 bg-slate-700/50 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-colors placeholder-gray-400"
                       placeholder="Ihr Name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2 break-words">
+                    <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2 break-words">
                       Firma
                     </label>
                     <input
@@ -118,7 +116,7 @@ const Contact = () => {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 bg-slate-700/50 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-colors placeholder-gray-400"
                       placeholder="Ihr Unternehmen"
                     />
                   </div>
@@ -126,7 +124,7 @@ const Contact = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2 break-words">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2 break-words">
                       E-Mail *
                     </label>
                     <input
@@ -136,12 +134,12 @@ const Contact = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 bg-slate-700/50 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-colors placeholder-gray-400"
                       placeholder="ihre@email.de"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2 break-words">
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2 break-words">
                       Telefonnummer *
                     </label>
                     <input
@@ -151,7 +149,7 @@ const Contact = () => {
                       required
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 bg-slate-700/50 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-colors placeholder-gray-400"
                       placeholder="+49 123 456789"
                     />
                   </div>
@@ -159,7 +157,7 @@ const Contact = () => {
 
           {/* Benefits of consultation */}
                 <div>
-                  <label htmlFor="website" className="block text-sm font-medium text-gray-700 mb-2 break-words">
+                  <label htmlFor="website" className="block text-sm font-medium text-gray-300 mb-2 break-words">
                     Website oder LinkedIn
                   </label>
                   <div className="relative">
@@ -172,14 +170,14 @@ const Contact = () => {
                       name="website"
                       value={formData.website}
                       onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className="w-full pl-10 pr-4 py-3 bg-slate-700/50 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-colors placeholder-gray-400"
                       placeholder="Website oder LinkedIn"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2 break-words">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2 break-words">
                     Nachricht
                   </label>
                   <textarea
@@ -188,7 +186,7 @@ const Contact = () => {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-slate-700/50 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-colors resize-none placeholder-gray-400"
                     placeholder="Erzählen Sie uns von Ihrem Anliegen..."
                   />
                 </div>
@@ -202,7 +200,7 @@ const Contact = () => {
                     onChange={(e) => setAgreedToTerms(e.target.checked)}
                     className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                   />
-                  <label htmlFor="terms" className="text-sm text-gray-600 break-words">
+                  <label htmlFor="terms" className="text-sm text-gray-300 break-words">
                     Ich stimme den{' '}
                     <Link to="/datenschutz" className="text-blue-600 hover:text-blue-800 underline">
                       Datenschutzbestimmungen
@@ -233,10 +231,10 @@ const Contact = () => {
                 className="text-center py-8"
               >
                 <CheckCircle className="text-green-500 mx-auto mb-4" size={64} />
-                <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+                <h4 className="text-xl sm:text-2xl font-bold text-white mb-2">
                   Vielen Dank!
                 </h4>
-                <p className="text-sm sm:text-base text-gray-600 px-4">
+                <p className="text-sm sm:text-base text-gray-300 px-4">
                   Wir haben Ihre Anfrage erhalten und melden uns innerhalb von 24 Stunden bei Ihnen.
                 </p>
               </motion.div>
@@ -251,8 +249,8 @@ const Contact = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-4xl mx-auto mt-12"
         >
-          <div className="bg-blue-50 rounded-2xl p-8">
-            <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-6 text-center break-words">
+          <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-cyan-500/30 shadow-2xl shadow-cyan-500/20 rounded-2xl p-8">
+            <h4 className="text-lg sm:text-xl font-bold text-cyan-400 mb-6 text-center break-words">
               Das erwartet Sie in der Erstberatung:
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -263,8 +261,8 @@ const Contact = () => {
                 'Keine Verpflichtungen – erst überzeugen, dann entscheiden'
               ].map((item, index) => (
                 <div key={index} className="flex items-start space-x-3">
-                  <CheckCircle className="text-blue-600 flex-shrink-0 mt-0.5" size={20} />
-                  <span className="text-sm sm:text-base text-gray-700 break-words">{item}</span>
+                  <CheckCircle className="text-cyan-400 flex-shrink-0 mt-0.5" size={20} />
+                  <span className="text-sm sm:text-base text-gray-300 break-words">{item}</span>
                 </div>
               ))}
             </div>
