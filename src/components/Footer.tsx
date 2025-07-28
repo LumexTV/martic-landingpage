@@ -113,6 +113,12 @@ const Footer = () => {
               >
                 Kontakt
               </Link>
+              <a 
+                href="/sitemap.html"
+                className="hover:text-white transition-colors whitespace-nowrap"
+              >
+                Sitemap
+              </a>
               <Link to="/impressum" className="hover:text-white transition-colors whitespace-nowrap">
                 Impressum
               </Link>

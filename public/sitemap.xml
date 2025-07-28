@@ -1,21 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Hauptseite -->
   <url>
     <loc>https://marticsolutions.de/</loc>
-    <lastmod>2025-01-25</lastmod>
+    <lastmod>2025-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://marticsolutions.de/images/mainimage.jpg</image:loc>
+      <image:title>Martic Solutions - KI-Lösungen für Handwerksbetriebe</image:title>
+      <image:caption>Moderne KI-Automatisierung und digitale Lösungen für Handwerksbetriebe</image:caption>
+    </image:image>
   </url>
+  
+  <!-- Services/Lösungen Sektion -->
+  <url>
+    <loc>https://marticsolutions.de/#automatisierung</loc>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Vorteile Sektion -->
+  <url>
+    <loc>https://marticsolutions.de/#vorteile</loc>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Sicherheit Sektion -->
+  <url>
+    <loc>https://marticsolutions.de/#sicherheit</loc>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Kontakt Sektion -->
+  <url>
+    <loc>https://marticsolutions.de/#kontakt</loc>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Dashboard Login -->
+  <url>
+    <loc>https://dashboard.marticsolutions.de/</loc>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Rechtliche Seiten -->
   <url>
     <loc>https://marticsolutions.de/impressum.html</loc>
-    <lastmod>2025-01-25</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  
   <url>
     <loc>https://marticsolutions.de/datenschutz</loc>
-    <lastmod>2025-01-25</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 </urlset>
