@@ -53,11 +53,11 @@ const PrivacyPolicy = () => {
       <p>Wenn Sie uns über das Kontaktformular kontaktieren, werden folgende Daten verarbeitet:</p>
       <ul className="list-disc px-8">
         <li>Name (Pflichtfeld)</li>
-        <li>Firmenname (optional)</li>
+        <li>Firmenname (Pflichtfeld)</li>
         <li>E-Mail-Adresse (Pflichtfeld)</li>
         <li>Telefonnummer (Pflichtfeld, um Sie zurückrufen zu können)</li>
-        <li>Website oder LinkedIn-Profil (optional)</li>
-        <li>Nachricht (Pflichtfeld)</li>
+        <li>Website oder LinkedIn-Profil (Pflichtfeld)</li>
+        <li>Nachricht (Optional)</li>
       </ul>
       <p>Diese Angaben werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
       <p><strong>Rechtsgrundlagen:</strong></p>
