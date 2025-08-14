@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://marticsolutions.de/sitemap.xml
+
+# Crawl-delay für respektvolle Crawling-Geschwindigkeit
+Crawl-delay: 1
+
+# Spezifische Regeln für verschiedene Bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Verhindere Crawling von privaten/administrativen Bereichen
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /webhook/
+
+# Erlaube wichtige Ressourcen
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /fonts/

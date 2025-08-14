@@ -1,0 +1,58 @@
+{
+  "name": "Martic Solutions - KI-Automatisierung für Unternehmen",
+  "short_name": "Martic Solutions",
+  "description": "Professionelle KI-Lösungen und Automatisierungssoftware für Unternehmen. Sparen Sie Zeit mit n8n-Workflows und intelligenten Prozessen.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "de",
+  "dir": "ltr",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/images/logoicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logoicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Martic Solutions Desktop Ansicht"
+    },
+    {
+      "src": "/images/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Martic Solutions Mobile Ansicht"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Kontakt",
+      "short_name": "Kontakt",
+      "description": "Kontaktformular öffnen",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/images/logoicon.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

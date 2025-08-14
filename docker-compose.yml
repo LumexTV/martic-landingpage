@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  landingpage:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: martic-landingpage
+    restart: unless-stopped
+    ports:
+      - "3001:80"
+    networks:
+      - nginx-proxy
+    environment:
+      - TZ=Europe/Berlin
+    
+
+networks:
+  nginx-proxy:
+    external: true
