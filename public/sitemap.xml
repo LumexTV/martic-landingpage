@@ -10,7 +10,7 @@
   <!-- Hauptseite -->
   <url>
     <loc>https://marticsolutions.de/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -23,7 +23,7 @@
   <!-- Datenschutz -->
   <url>
     <loc>https://marticsolutions.de/datenschutz</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -31,9 +31,17 @@
   <!-- Impressum -->
   <url>
     <loc>https://marticsolutions.de/impressum</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+  </url>
+
+  <!-- Google Refresh Page -->
+  <url>
+    <loc>https://marticsolutions.de/google-refresh.html</loc>
+    <lastmod>2024-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <!-- Anker-Links für bessere interne Verlinkung -->
