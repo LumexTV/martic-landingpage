@@ -13,11 +13,11 @@
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://marticsolutions.de/images/logoicon.png</image:loc>
-      <image:title>Martic Solutions - KI-Automatisierung für Unternehmen</image:title>
-      <image:caption>Professionelle KI-Lösungen und Automatisierungssoftware für Unternehmen</image:caption>
-    </image:image>
+         <image:image>
+       <image:loc>https://marticsolutions.de/images/favicon/android-chrome-192x192.png</image:loc>
+       <image:title>Martic Solutions - KI-Automatisierung für Unternehmen</image:title>
+       <image:caption>Professionelle KI-Lösungen und Automatisierungssoftware für Unternehmen</image:caption>
+     </image:image>
   </url>
 
   <!-- Datenschutz -->
