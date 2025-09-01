@@ -1,37 +1,8 @@
 <!doctype html>
 <html lang="de">
   <head>
-    <!-- Cookiebot Banner - Erzwungene Anzeige -->
+    <!-- Cookiebot Banner - Saubere Implementierung -->
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5672dad7-bf17-49bd-b39f-9946569f7734" data-blockingmode="auto" data-culture="DE" type="text/javascript"></script>
-    
-    <!-- Cookiebot Banner erzwingen -->
-    <script>
-      // Warten bis Cookiebot geladen ist
-      window.addEventListener('CookiebotOnLoad', function() {
-        console.log('🍪 Cookiebot geladen - Erzwinge Banner-Anzeige');
-        
-        // Alle bestehenden Cookies löschen
-        document.cookie = "CookieConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        document.cookie = "CookieConsentBulkTicket=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        document.cookie = "CookieConsentBulkTicket-part000=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        
-        // Banner nach kurzer Verzögerung anzeigen
-        setTimeout(function() {
-          if (window.Cookiebot && window.Cookiebot.show) {
-            window.Cookiebot.show();
-            console.log('✅ Cookiebot Banner erzwungen');
-          }
-        }, 1000);
-      });
-      
-      // Fallback: Banner nach 5 Sekunden erzwingen
-      setTimeout(function() {
-        if (window.Cookiebot && window.Cookiebot.show) {
-          console.log('🍪 Fallback: Erzwinge Banner nach 5 Sekunden');
-          window.Cookiebot.show();
-        }
-      }, 5000);
-    </script>
     
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
