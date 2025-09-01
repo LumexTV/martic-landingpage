@@ -1,15 +1,84 @@
 <!doctype html>
 <html lang="de">
   <head>
-    <!-- Cookiebot Banner (MUSS als erstes Script im HEAD stehen) -->
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5672dad7-bf17-49bd-b39f-9946569f7734" data-blockingmode="auto" data-culture="DE" type="text/javascript"></script>
-    
-    <!-- Temporäre Lösung für lokale Entwicklung -->
+    <!-- Cookiebot Banner - Robuste Implementierung -->
     <script>
-      // Prüfe ob wir auf localhost sind
-      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        console.log('🔧 Lokale Entwicklung erkannt - Cookiebot wird temporär deaktiviert');
-        // Erstelle ein Mock-Cookiebot Objekt für lokale Entwicklung
+      // Cookiebot Konfiguration
+      window.cookiebotConfig = {
+        cbid: '5672dad7-bf17-49bd-b39f-9946569f7734',
+        blockingmode: 'auto',
+        culture: 'DE'
+      };
+      
+      // Dynamisches Laden des Cookiebot Scripts
+      function loadCookiebot() {
+        console.log('🔄 Lade Cookiebot Script...');
+        
+        var script = document.createElement('script');
+        script.id = 'CookiebotDynamic';
+        script.src = 'https://consent.cookiebot.com/uc.js';
+        script.setAttribute('data-cbid', window.cookiebotConfig.cbid);
+        script.setAttribute('data-blockingmode', window.cookiebotConfig.blockingmode);
+        script.setAttribute('data-culture', window.cookiebotConfig.culture);
+        script.type = 'text/javascript';
+        
+        script.onload = function() {
+          console.log('✅ Cookiebot Script geladen');
+          waitForCookiebot();
+        };
+        
+        script.onerror = function() {
+          console.error('❌ Fehler beim Laden des Cookiebot Scripts');
+          createFallbackCookiebot();
+        };
+        
+        document.head.appendChild(script);
+      }
+      
+      // Warten auf Cookiebot Objekt
+      function waitForCookiebot() {
+        var attempts = 0;
+        var maxAttempts = 20; // 10 Sekunden (20 x 500ms)
+        
+        var checkInterval = setInterval(function() {
+          attempts++;
+          console.log('🔄 Warte auf Cookiebot... Versuch ' + attempts);
+          
+          if (window.Cookiebot) {
+            console.log('✅ Cookiebot Objekt gefunden!');
+            clearInterval(checkInterval);
+            initializeCookiebot();
+          } else if (attempts >= maxAttempts) {
+            console.log('❌ Cookiebot nicht gefunden nach ' + maxAttempts + ' Versuchen');
+            clearInterval(checkInterval);
+            createFallbackCookiebot();
+          }
+        }, 500);
+      }
+      
+      // Cookiebot initialisieren
+      function initializeCookiebot() {
+        try {
+          console.log('🚀 Initialisiere Cookiebot...');
+          console.log('Cookiebot Objekt:', window.Cookiebot);
+          console.log('Cookiebot Methoden:', Object.getOwnPropertyNames(window.Cookiebot));
+          
+          // Banner anzeigen
+          if (typeof window.Cookiebot.show === 'function') {
+            window.Cookiebot.show();
+            console.log('✅ Cookiebot Banner angezeigt');
+          } else {
+            console.log('❌ Cookiebot.show nicht verfügbar');
+          }
+        } catch (error) {
+          console.error('❌ Fehler bei Cookiebot Initialisierung:', error);
+          createFallbackCookiebot();
+        }
+      }
+      
+      // Fallback Cookiebot erstellen
+      function createFallbackCookiebot() {
+        console.log('🔧 Erstelle Fallback Cookiebot...');
         window.Cookiebot = {
           consent: {
             necessary: true,
@@ -20,10 +89,18 @@
           },
           hasResponse: true,
           show: function() {
-            console.log('🍪 Mock Cookie Banner würde angezeigt werden (lokale Entwicklung)');
-            alert('🍪 Cookie Banner würde hier angezeigt werden\n\nFür den echten Banner:\n1. Gehen Sie zu Cookiebot Manager\n2. Fügen Sie "localhost" zu Ihren autorisierten Domains hinzu\n3. Testen Sie auf Ihrer echten Domain');
+            console.log('🍪 Fallback Cookie Banner angezeigt');
+            alert('🍪 Cookie Banner (Fallback)\n\nCookiebot konnte nicht geladen werden.\nBitte prüfen Sie:\n1. Internetverbindung\n2. AdBlocker-Einstellungen\n3. Browser-Erweiterungen');
           }
         };
+        console.log('✅ Fallback Cookiebot erstellt');
+      }
+      
+      // Cookiebot laden wenn DOM bereit ist
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadCookiebot);
+      } else {
+        loadCookiebot();
       }
     </script>
     
