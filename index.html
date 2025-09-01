@@ -1,6 +1,32 @@
 <!doctype html>
 <html lang="de">
   <head>
+    <!-- Cookiebot Banner (MUSS als erstes Script im HEAD stehen) -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5672dad7-bf17-49bd-b39f-9946569f7734" data-blockingmode="auto" data-culture="DE" type="text/javascript"></script>
+    
+    <!-- Temporäre Lösung für lokale Entwicklung -->
+    <script>
+      // Prüfe ob wir auf localhost sind
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        console.log('🔧 Lokale Entwicklung erkannt - Cookiebot wird temporär deaktiviert');
+        // Erstelle ein Mock-Cookiebot Objekt für lokale Entwicklung
+        window.Cookiebot = {
+          consent: {
+            necessary: true,
+            preferences: false,
+            statistics: false,
+            marketing: false,
+            method: 'implied'
+          },
+          hasResponse: true,
+          show: function() {
+            console.log('🍪 Mock Cookie Banner würde angezeigt werden (lokale Entwicklung)');
+            alert('🍪 Cookie Banner würde hier angezeigt werden\n\nFür den echten Banner:\n1. Gehen Sie zu Cookiebot Manager\n2. Fügen Sie "localhost" zu Ihren autorisierten Domains hinzu\n3. Testen Sie auf Ihrer echten Domain');
+          }
+        };
+      }
+    </script>
+    
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -195,6 +221,74 @@
 
     <!-- n8n Chat CSS -->
     <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    
+    <!-- Google Consent Mode (MUSS vor Google Analytics stehen) -->
+    <script data-cookieconsent="ignore">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+      });
+      gtag("set", "ads_data_redaction", true);
+      gtag("set", "url_passthrough", false);
+    </script>
+    
+    <!-- Cookiebot Event Listener für Debugging -->
+    <script>
+      window.addEventListener('CookiebotOnLoad', function (e) {
+        console.log('Cookiebot Banner geladen!');
+        console.log('Cookiebot Objekt:', window.Cookiebot);
+        console.log('Consent Status:', window.Cookiebot.consent);
+      });
+      
+      window.addEventListener('CookiebotOnConsentReady', function (e) {
+        console.log('Cookiebot Consent bereit!');
+        console.log('Consent Method:', window.Cookiebot.consent.method);
+        console.log('Has Response:', window.Cookiebot.hasResponse);
+      });
+      
+      // Fallback: Prüfe nach 3 Sekunden, ob Cookiebot geladen ist
+      setTimeout(function() {
+        if (window.Cookiebot) {
+          console.log('Cookiebot ist verfügbar');
+          
+          // Prüfe ob bereits Consent gegeben wurde
+          if (window.Cookiebot.hasResponse) {
+            console.log('Bereits Consent gegeben - Dialog wird nicht angezeigt');
+            // Lösche alle Cookiebot Cookies und zeige Dialog neu
+            document.cookie = "CookieConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "CookieConsentBulkTicket=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "CookieConsentBulkTicket-part000=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            
+            // Zeige Dialog nach kurzer Verzögerung
+            setTimeout(function() {
+              if (window.Cookiebot.show) {
+                window.Cookiebot.show();
+                console.log('Cookiebot Dialog manuell geöffnet');
+              }
+            }, 1000);
+          } else {
+            console.log('Kein Consent gegeben - Dialog sollte angezeigt werden');
+            // Erzwinge Dialog-Anzeige
+            if (window.Cookiebot.show) {
+              window.Cookiebot.show();
+              console.log('Cookiebot Dialog manuell geöffnet');
+            }
+          }
+        } else {
+          console.log('Cookiebot ist NICHT verfügbar - Problem beim Laden');
+        }
+      }, 3000);
+    </script>
   </head>
   <body>
     <div id="root"></div>
@@ -264,5 +358,79 @@
     
     <!-- Chat Widget Container -->
     <div id="n8n-chat"></div>
+    
+
+    
+    <!-- Erweiterte Cookiebot Debug-Funktionen -->
+    <script>
+      function debugCookiebot() {
+        console.log('=== COOKIEBOT DEBUG START ===');
+        console.log('window.Cookiebot:', window.Cookiebot);
+        console.log('typeof window.Cookiebot:', typeof window.Cookiebot);
+        
+        if (window.Cookiebot) {
+          console.log('Cookiebot Objekt gefunden!');
+          console.log('Cookiebot Methoden:', Object.getOwnPropertyNames(window.Cookiebot));
+          console.log('Cookiebot.show existiert:', typeof window.Cookiebot.show);
+          console.log('Cookiebot.consent:', window.Cookiebot.consent);
+          console.log('Cookiebot.hasResponse:', window.Cookiebot.hasResponse);
+          
+          if (typeof window.Cookiebot.show === 'function') {
+            try {
+              window.Cookiebot.show();
+              console.log('✅ Cookiebot.show() erfolgreich aufgerufen');
+            } catch (error) {
+              console.error('❌ Fehler beim Aufruf von Cookiebot.show():', error);
+            }
+          } else {
+            console.log('❌ Cookiebot.show ist keine Funktion');
+          }
+        } else {
+          console.log('❌ Cookiebot Objekt nicht gefunden');
+          console.log('Versuche Cookiebot neu zu laden...');
+          
+          // Versuche den Script neu zu laden
+          var script = document.createElement('script');
+          script.id = 'CookiebotRetry';
+          script.src = 'https://consent.cookiebot.com/uc.js?cbid=5672dad7-bf17-49bd-b39f-9946569f7734';
+          script.setAttribute('data-cbid', '5672dad7-bf17-49bd-b39f-9946569f7734');
+          script.setAttribute('data-blockingmode', 'auto');
+          script.setAttribute('data-culture', 'DE');
+          script.type = 'text/javascript';
+          
+          script.onload = function() {
+            console.log('✅ Cookiebot Script neu geladen');
+            setTimeout(function() {
+              if (window.Cookiebot && window.Cookiebot.show) {
+                window.Cookiebot.show();
+                console.log('✅ Dialog nach Neuladen geöffnet');
+              }
+            }, 2000);
+          };
+          
+          script.onerror = function() {
+            console.error('❌ Fehler beim Laden des Cookiebot Scripts');
+          };
+          
+          document.head.appendChild(script);
+        }
+        
+        console.log('=== COOKIEBOT DEBUG ENDE ===');
+      }
+      
+      // Prüfe alle 2 Sekunden, ob Cookiebot geladen ist
+      setInterval(function() {
+        if (window.Cookiebot) {
+          console.log('🔄 Cookiebot Status Check:', {
+            loaded: true,
+            hasShow: typeof window.Cookiebot.show === 'function',
+            hasResponse: window.Cookiebot.hasResponse,
+            consent: window.Cookiebot.consent
+          });
+        } else {
+          console.log('🔄 Cookiebot nicht geladen');
+        }
+      }, 2000);
+    </script>
   </body>
 </html>

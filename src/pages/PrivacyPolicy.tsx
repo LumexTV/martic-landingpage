@@ -122,6 +122,8 @@ const PrivacyPolicy = () => {
               Luka Martic
               <br />E-Mail: <a href="mailto:kontakt@marticsolutions.de" className="text-blue-400 hover:text-blue-300 underline">kontakt@marticsolutions.de</a>
             </p>
+            
+
           </motion.div>
         </div>
       </div>
